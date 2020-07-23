@@ -18,10 +18,11 @@ public class TestChatter {
   public void test(){
     String answer = chatter.answer("你叫什么名字", "0000");
 
+    System.out.println(answer);
+
+    answer = chatter.answer("你好", "0000");
 
     System.out.println(answer);
   }
 
 }
-
-
