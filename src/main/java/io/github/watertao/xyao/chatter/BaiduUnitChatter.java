@@ -29,8 +29,12 @@ public class BaiduUnitChatter implements Chatter {
 
   private static final Logger logger = LoggerFactory.getLogger(BaiduUnitChatter.class);
 
-  private static final RequestConfig REQUEST_CONFIG = RequestConfig.custom().setConnectTimeout(3000)
-    .setConnectionRequestTimeout(3000).setSocketTimeout(3000).build();
+  private static final RequestConfig REQUEST_CONFIG = RequestConfig.custom()
+    .setConnectTimeout(3000)
+    .setCookieSpec(CookieSpecs.IGNORE_COOKIES)
+    .setConnectionRequestTimeout(3000)
+    .setSocketTimeout(3000)
+    .build();
 
   private CloseableHttpClient httpClient;
   private ObjectMapper objectMapper;
