@@ -3,6 +3,7 @@ package io.github.watertao.xyao.chatter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.watertao.xyao.infras.Chatter;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -25,8 +26,12 @@ import java.util.Map;
 @Service
 public class BaiduUnitChatter implements Chatter {
 
-  private static final RequestConfig REQUEST_CONFIG = RequestConfig.custom().setConnectTimeout(3000)
-    .setConnectionRequestTimeout(3000).setSocketTimeout(3000).build();
+  private static final RequestConfig REQUEST_CONFIG = RequestConfig.custom()
+    .setCookieSpec(CookieSpecs.IGNORE_COOKIES)
+    .setConnectTimeout(3000)
+    .setConnectionRequestTimeout(3000)
+    .setSocketTimeout(3000)
+    .build();
 
   private CloseableHttpClient httpClient;
   private ObjectMapper objectMapper;
