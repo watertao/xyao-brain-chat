@@ -63,17 +63,25 @@ public class XyaoQuestionResolver implements MessageListener {
 
     XyaoAnswer message = new XyaoAnswer();
     message.setRoom(question.getRoom());
-    message.setTo(question.getFrom());
+    message.getTo().add(new XyaoAnswer.Contact(){{
+      setId(question.getFrom().getId());
+      setName(question.getFrom().getName());
+      setIsMention(false);
+    }});
     message.getEntities().add(new XyaoAnswer.StringEntity(answer));
 
     channelProxy.publish(message);
 
   }
 
-  private void makeErrResponse(XyaoQuestion instruction, Exception exception) {
+  private void makeErrResponse(XyaoQuestion question, Exception exception) {
     XyaoAnswer message = new XyaoAnswer();
-    message.setRoom(instruction.getRoom());
-    message.setTo(instruction.getFrom());
+    message.setRoom(question.getRoom());
+    message.getTo().add(new XyaoAnswer.Contact(){{
+      setId(question.getFrom().getId());
+      setName(question.getFrom().getName());
+      setIsMention(false);
+    }});
     message.getEntities().add(new XyaoAnswer.StringEntity());
 
     ((XyaoAnswer.StringEntity) message.getEntities().get(0)).setPayload(

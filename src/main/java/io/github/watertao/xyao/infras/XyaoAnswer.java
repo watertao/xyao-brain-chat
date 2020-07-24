@@ -9,17 +9,21 @@ public class XyaoAnswer {
    * 如果私聊，则是发送对象
    * 若是群聊，则是 @ 对象
    */
-  private XyaoQuestion.Contact to;
+  private List<Contact> to;
   private XyaoQuestion.Room room;
 
   private List<Object> entities = new ArrayList<>();
 
-  public XyaoQuestion.Contact getTo() {
+  public XyaoAnswer() {
+    to = new ArrayList<>();
+  }
+
+  public List<Contact> getTo() {
     return to;
   }
 
-  public void setTo(XyaoQuestion.Contact to) {
-    this.to = to;
+  public void setEntities(List<Object> entities) {
+    this.entities = entities;
   }
 
   public XyaoQuestion.Room getRoom() {
@@ -189,5 +193,36 @@ public class XyaoAnswer {
       this.type = type;
     }
   }
+
+  public static class Contact {
+    private String id;
+    private String name;
+    private boolean isMention;
+
+    public boolean getIsMention() {
+      return isMention;
+    }
+
+    public void setIsMention(boolean mention) {
+      isMention = mention;
+    }
+
+    public String getId() {
+      return id;
+    }
+
+    public void setId(String id) {
+      this.id = id;
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+  }
+
 
 }

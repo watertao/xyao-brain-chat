@@ -3,6 +3,7 @@ package io.github.watertao.xyao.chatter;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.watertao.xyao.infras.Chatter;
+import io.github.watertao.xyao.infras.XyaoQuestion;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -144,6 +145,14 @@ public class BaiduUnitChatter implements Chatter {
     }
   }
 
+
+  public static void main(String[] args) throws Exception {
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.readValue("{\"from\":{\"id\":\"wxid_na9jq9e83bzm12\",\"name\":\"watertao\",\"isMaster\":true},\"room\":null,\"text\":\"gogo\"}", XyaoQuestion.class);
+
+    System.out.println("");
+
+  }
 
 
 }

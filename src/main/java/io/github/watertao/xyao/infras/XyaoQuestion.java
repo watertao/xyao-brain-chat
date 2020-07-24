@@ -58,11 +58,11 @@ public class XyaoQuestion {
         private String name;
         private boolean isMaster;
 
-      public boolean isMaster() {
+      public boolean getIsMaster() {
         return isMaster;
       }
 
-      public void setMaster(boolean master) {
+      public void setIsMaster(boolean master) {
         isMaster = master;
       }
 
