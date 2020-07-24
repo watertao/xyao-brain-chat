@@ -1,5 +1,6 @@
 package io.github.watertao.xyao.chatter;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.watertao.xyao.infras.Chatter;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -67,7 +68,9 @@ public class BaiduUnitChatter implements Chatter {
       .setMaxConnTotal(50)
       .setMaxConnPerRoute(20)
       .build();
-    this.objectMapper = new ObjectMapper();
+    this.objectMapper = new ObjectMapper(){{
+      configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    }};
   }
 
 
