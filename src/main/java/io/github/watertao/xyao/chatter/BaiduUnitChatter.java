@@ -145,14 +145,4 @@ public class BaiduUnitChatter implements Chatter {
     }
   }
 
-
-  public static void main(String[] args) throws Exception {
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.readValue("{\"from\":{\"id\":\"wxid_na9jq9e83bzm12\",\"name\":\"watertao\",\"isMaster\":true},\"room\":null,\"text\":\"gogo\"}", XyaoQuestion.class);
-
-    System.out.println("");
-
-  }
-
-
 }
