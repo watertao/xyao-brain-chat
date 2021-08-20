@@ -59,13 +59,14 @@ public class XyaoQuestionResolver implements MessageListener {
 
   private void handleQuestion(XyaoQuestion question) {
 
-    String answer = chatter.answer(question.getText(), question.getFrom().getId());
+    String answer = chatter.answer(question.getText(), question.getSender().getId());
 
     XyaoAnswer message = new XyaoAnswer();
+    message.setEnv(question.getEnv());
     message.setRoom(question.getRoom());
-    message.getTo().add(new XyaoAnswer.Contact(){{
-      setId(question.getFrom().getId());
-      setName(question.getFrom().getName());
+    message.getReceivers().add(new XyaoAnswer.Contact(){{
+      setId(question.getSender().getId());
+      setName(question.getSender().getName());
       setIsMention(false);
     }});
     message.getEntities().add(new XyaoAnswer.StringEntity(answer));
@@ -76,10 +77,11 @@ public class XyaoQuestionResolver implements MessageListener {
 
   private void makeErrResponse(XyaoQuestion question, Exception exception) {
     XyaoAnswer message = new XyaoAnswer();
+    message.setEnv(question.getEnv());
     message.setRoom(question.getRoom());
-    message.getTo().add(new XyaoAnswer.Contact(){{
-      setId(question.getFrom().getId());
-      setName(question.getFrom().getName());
+    message.getReceivers().add(new XyaoAnswer.Contact(){{
+      setId(question.getSender().getId());
+      setName(question.getSender().getName());
       setIsMention(false);
     }});
     message.getEntities().add(new XyaoAnswer.StringEntity());

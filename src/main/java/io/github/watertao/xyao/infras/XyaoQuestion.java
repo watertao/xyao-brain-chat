@@ -4,19 +4,60 @@ import javax.security.auth.login.Configuration;
 
 public class XyaoQuestion {
 
-    private Contact from;
+//  brain: string
+//
+//  /**
+//   * the message sent to x.yao in Room or Whisper
+//   */
+//  env: 'ROOM' | 'WHISPER'
+//
+//  /**
+//   * who send this instruction
+//   */
+//  sender: InstructionSender
+//
+//  /**
+//   * if message is sent in Room, this field should be set
+//   */
+//  room: Room | null
+//
+//  /**
+//   * the message after brain prefix, for example
+//   * message is 'x:dice 100' , the text will be 'dice 100'
+//   */
+//  text: string
+
+  private String brain;
+    private String env;
+    private Contact sender;
     private Room room;
     private String text;
 
-  public Contact getFrom() {
-        return from;
-    }
+  public String getEnv() {
+    return env;
+  }
 
-    public void setFrom(Contact from) {
-        this.from = from;
-    }
+  public void setEnv(String env) {
+    this.env = env;
+  }
 
-    public Room getRoom() {
+  public String getBrain() {
+    return brain;
+  }
+
+  public void setBrain(String brain) {
+    this.brain = brain;
+  }
+
+  public Contact getSender() {
+    return sender;
+  }
+
+  public void setSender(Contact sender) {
+    this.sender = sender;
+  }
+
+  public Room getRoom() {
         return room;
     }
 

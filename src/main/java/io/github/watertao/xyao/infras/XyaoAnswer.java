@@ -5,21 +5,31 @@ import java.util.List;
 
 public class XyaoAnswer {
 
+  private String env;
+
   /**
    * 如果私聊，则是发送对象
    * 若是群聊，则是 @ 对象
    */
-  private List<Contact> to;
+  private List<Contact> receivers;
   private XyaoQuestion.Room room;
 
   private List<Object> entities = new ArrayList<>();
 
   public XyaoAnswer() {
-    to = new ArrayList<>();
+    receivers = new ArrayList<>();
   }
 
-  public List<Contact> getTo() {
-    return to;
+  public String getEnv() {
+    return env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  public List<Contact> getReceivers() {
+    return receivers;
   }
 
   public void setEntities(List<Object> entities) {
