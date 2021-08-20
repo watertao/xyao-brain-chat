@@ -67,11 +67,11 @@
         <version>1.3.0</version>
         <configuration>
           <from>
-            <image>registry.cn-shanghai.aliyuncs.com/watertao_docker_registry/openjdk:8-jdk-alpine</image>
+            <image>openjdk:8-jdk-alpine</image>
           </from>
           <to>
             <!-- 注意先执行 docker login  -u 阿里云docker用户名 registry.cn-shanghai.aliyuncs.com -->
-            <image>registry.cn-shanghai.aliyuncs.com/watertao_docker_registry/${project.artifactId}:${project.version}</image>
+            <image>ccr.ccs.tencentyun.com/xyao/${project.artifactId}:${project.version}</image>
           </to>
           <container>
             <extraClasspath><classpath>/data/config</classpath></extraClasspath>
